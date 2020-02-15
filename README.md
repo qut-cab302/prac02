@@ -55,7 +55,7 @@ This exercise will give you experience at interpreting Application Programming I
 
 Comic book superheroes remain in vogue thanks to the financial success of the recent Marvel movies. In this exercise you will develop a type hierarchy that models the characteristics of comic book superheroes. (But for testing purposes we will use 'Golden Age' superheroes from the 1940s and 1950s since these were when superheroes peaked.)
 
-Enclosed with these instructions you will find the [API documentation for a 'superhero' class hierarchy](HeroesAPI/index.html), along with two Java files:
+Enclosed with these instructions you will find the API documentation for a 'superhero' class hierarchy, along with two Java files:
 
 * Enumerated type `SuperPower.java` which lists the superpowers available to
 Golden Age superheroes.
@@ -67,7 +67,7 @@ Your task is to study the API documentation and, based on this, to implement the
 
 **Hint**: For one of the above classes you will can implement the powers as an array. For another one of the classes you will need to need to implement the powers as a Set, implemented as a HashSet. The code to declare a HashSet is 
 `HashSet<T> set=new HashSet<T>();`,
-where  `T` is the name of the class stored in the Set. We will learn about Set/HashSet and other Java collections in week 4. You can find out more about the HashSet class, including with methods will be most useful, either via the [`Java API` - https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/HashSet.html](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/HashSet.html) or by using IntelliJ's inline help (hint: use Ctrl+Q to view the documentation for a method or class). Also, as powers are passed as an array you will need to find a way to convert them to a HashSet.
+where  `T` is the name of the class stored in the Set. We will learn about Set/HashSet and other Java collections in week 4. You can find out more about the HashSet class, including with methods will be most useful, either via the Java API documentation or by using IntelliJ's inline help (hint: use Ctrl+Q to view the documentation for a method or class). Also, as powers are passed as an array you will need to find a way to convert them to a HashSet.
 
 
 ![Hero class hierarchy](imgs/hero.jpg "Hero class hierarchy")
@@ -83,15 +83,15 @@ So far the `Hero` interface doesn't appear to be especially helpful. However, it
 
 ![Hero class heirarchy extended with SecretAgent](imgs/agent.jpg "Hero class heirarchy extended with SecretAgent")
 
-Not only do secret agents have an alias (when on a mission James Bond is known as '007' and Maxwell Smart as 'Agent 86'), but they are frequently associated with gadgets (like Max's shoephone). Therefore, your `SecretAgent` class should inherit the features of the `Hero` class and add an attribute which stores the gadget typically associated with this agent (as a text string). Once again, consult the [API documentation provided](HeroesAPI/index.html) for the precise specification. Use the `AgentTester.java` program to test your class.
+Not only do secret agents have an alias (when on a mission James Bond is known as '007' and Maxwell Smart as 'Agent 86'), but they are frequently associated with gadgets (like Max's shoephone). Therefore, your `SecretAgent` class should inherit the features of the `Hero` class and add an attribute which stores the gadget typically associated with this agent (as a text string). Once again, consult the API documentation provided for the precise specification. Use the `AgentTester.java` program to test your class.
 
 **Question**  Do you need to declare a method for returning a secret agent powers? Why or why not?
 
 
 # Exceptions
 
-Complete the implementation of `bank/BankAccount.java`. At the moment the class is implemented correctly
-but does not have any exception handling. Withdraw should throw a `FundsException` if there are insufficient funds 
+Complete the implementation of `BankAccount.java`. At the moment the class is implemented correctly
+but does not have any exception handling. Withdraw should throw a `FundsException` if there are insufficient funds.
 
 
 ```
