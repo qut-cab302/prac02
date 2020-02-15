@@ -40,7 +40,6 @@ Your second task is to use polymorphism to complete the two methods in the `Shap
 You can test that you have implemented `ShapeHandler` correctly by constructing an array of your shapes:
 
 ```java
-
 Shape[] shapes = ???
 
 System.out.println("The volume sum of the shapes is: " + volumeSum(shapes));
