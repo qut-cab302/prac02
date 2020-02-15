@@ -1,4 +1,4 @@
-package heroAnswers;
+package hero;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -13,9 +13,6 @@ import heroQuestions.SuperPower;
  * into their secret (super) identity they also acquire a whole collection of
  * superpowers, and lose them again when changing back to their real
  * (non-super) identity.
- * 
- * @author Colin Fidge
- * @version 1.0
  */
 public class EnhancedHuman extends SuperHero {
 

@@ -1,4 +1,4 @@
-package heroAnswers;
+package hero;
 
 import heroQuestions.SuperPower;
 
@@ -6,9 +6,6 @@ import heroQuestions.SuperPower;
  * Some mere mortals are nonetheless "super" heroes thanks to their
  * fearlessness and training.  (Batman is an obvious example.)
  * These superheroes never have any superpowers.
- * 
- * @author Colin Fidge
- * @version 1.0
  */
 public class Human extends SuperHero {
 

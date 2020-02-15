@@ -1,4 +1,4 @@
-package heroAnswers;
+package hero;
 
 /*
  * Note to self: When generating Javadoc from this file use
@@ -11,9 +11,6 @@ package heroAnswers;
  * is that they have (at least) two identities, a "super" or "secret"
  * one used when performing heroic feats and a "plain" one that
  * allows them to move through society without attracting attention.
- * 
- * @author Colin Fidge
- * @version 1.1
  */
 public interface Hero {
 

@@ -1,4 +1,4 @@
-package heroQuestions;
+package hero;
 
 import java.io.*;
 import heroAnswers.Human;

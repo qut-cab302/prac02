@@ -1,13 +1,10 @@
-package heroQuestions;
+package hero;
 
 /**
  * This enumerated type lists super powers commonly available
  * to comic book superheroes and associates a (subjective) value
  * with each one for defeating supervillains.  (The list of
  * powers is by no means comprehensive.)
- * 
- * @author Colin Fidge
- * @version 1.0
  *
  */
 public enum SuperPower {

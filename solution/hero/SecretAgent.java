@@ -1,11 +1,8 @@
-package heroAnswers;
+package hero;
 
 /**
  * A secret agent has both a name and an alias, usually a number.
  * In addition, secret agents have a favourite gadget.
- * 
- * @author Colin Fidge
- * @version 1.0
  */
 public class SecretAgent implements Hero {
 	

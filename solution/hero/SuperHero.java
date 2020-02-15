@@ -1,13 +1,10 @@
-package heroAnswers;
+package hero;
 
 import heroQuestions.SuperPower;
 
 /**
  * A superhero is a hero (with two identities) but may also have
  * superpowers.
- * 
- * @author Colin Fidge
- * @version 1.0
  */
 public abstract class SuperHero implements Hero {
 

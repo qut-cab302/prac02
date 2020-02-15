@@ -1,4 +1,4 @@
-package heroAnswers;
+package hero;
 
 import java.util.Set;
 import java.util.HashSet;
@@ -12,9 +12,6 @@ import heroQuestions.SuperPower;
  * under certain circumstances a superhuman may lose some of their
  * powers (e.g., when Superman is exposed to gold kryptonite), may later
  * regain lost ones, or may acquire entirely new powers.
- * 
- * @author Colin Fidge
- * @version 1.0
  */
 public class SuperHuman extends SuperHero {
 
