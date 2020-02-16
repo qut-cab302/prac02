@@ -1,6 +1,5 @@
 package hero;
 
-import heroQuestions.SuperPower;
 
 /**
  * Some mere mortals are nonetheless "super" heroes thanks to their

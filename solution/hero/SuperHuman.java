@@ -3,7 +3,6 @@ package hero;
 import java.util.Set;
 import java.util.HashSet;
 import java.util.Arrays;
-import heroQuestions.SuperPower;
 
 /**
  * A superhuman is born with "powers and abilities far beyond those

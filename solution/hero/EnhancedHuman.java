@@ -3,7 +3,6 @@ package hero;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
-import heroQuestions.SuperPower;
 
 /**
  * An "enhanced" human is born as a mere mortal (e.g., Billy Batson) but

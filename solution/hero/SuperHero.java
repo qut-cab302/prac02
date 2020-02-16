@@ -1,6 +1,5 @@
 package hero;
 
-import heroQuestions.SuperPower;
 
 /**
  * A superhero is a hero (with two identities) but may also have

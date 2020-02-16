@@ -2,7 +2,6 @@ package hero;
 
 import java.io.PrintWriter;
 
-import heroAnswers.SecretAgent;
 
 /* 
  * This program briefly tests the implementation of your "SecretAgent" class.

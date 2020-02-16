@@ -2,9 +2,9 @@
 
 # Shapes
 
-You are provided with the `Shape` interface.
+This exercise will give you experience in polymorphism.
 
-Create three implementations of `Shape`, implementing the volume and surface area methods required by the interface as follows:
+You are provided with the `Shape` interface. Create three implementations of `Shape`, implementing the volume and surface area methods required by the interface as follows:
 
 ## `Tetrahedron(double edge)`
 
@@ -28,24 +28,32 @@ Create three implementations of `Shape`, implementing the volume and surface are
 
 
 
-You can verify your classes work by creating a new class containing a `main`. Within the `main` you can instantiate objects of your `Shape` implementations. E.g.
+You can verify your classes work by constructing objects from them and checking that `volume` and `surfaceArea` return the correct results.
+
+Your second task is to use polymorphism to complete the two methods in the `ShapeHandler` class:
 
 ```java
-Shape a = new Cube(5);
-System.out.println(a.volume());
+package shapes;
+
+public class ShapeHandler {
+
+    // Returns the sum of the volumes of the given shapes.
+    public static double volumeSum(Shape[] shapes) {
+        return 0;
+    }
+
+    // Returns the sum of the surface areas of the given shapes.
+    public static double surfaceAreaSum(Shape[] shapes) {
+        return 0;
+    }
+
+}
 ```
 
-Your second task is to use polymorphism to complete the two methods in the `ShapeHandler` class.
+You can test that you have implemented `ShapeHandler` correctly by constructing an array of various shapes and passing them to your `ShapeHandler` methods.
 
-You can test that you have implemented `ShapeHandler` correctly by constructing an array of your shapes:
 
-```java
-Shape[] shapes = ???
-
-System.out.println("The volume sum of the shapes is: " + volumeSum(shapes));
-System.out.println("The surface area sum of the shapes is: " + surfaceAreaSum(shapes));
-```
-
+**Question**:  Why do we make the Shape methods non-static but the ShapeHandler methods static?
 
 
 # A superhero class hierarchy
@@ -84,20 +92,104 @@ So far the `Hero` interface doesn't appear to be especially helpful. However, it
 
 Not only do secret agents have an alias (when on a mission James Bond is known as '007' and Maxwell Smart as 'Agent 86'), but they are frequently associated with gadgets (like Max's shoephone). Therefore, your `SecretAgent` class should inherit the features of the `Hero` class and add an attribute which stores the gadget typically associated with this agent (as a text string). Once again, consult the API documentation provided for the precise specification. Use the `AgentTester.java` program to test your class.
 
-**Question**  Do you need to declare a method for returning a secret agent powers? Why or why not?
+**Question:**  Do you need to declare a method for returning a secret agent powers? Why or why not?
 
 
 # Exceptions
 
-Complete the implementation of `BankAccount.java`. At the moment the class is implemented correctly
-but does not have any exception handling. Withdraw should throw a `FundsException` if there are insufficient funds.
+This exercise illustrates a use case for exceptions and gives you experience in raising and handling exceptions.
 
+The below `BankAccount` class has been implemented correctly but it requires some exception handling.
+
+Copy and paste the code into new `BankAccount.java` file under the `bank` package.
+
+```java
+package bank;
+
+public class BankAccount {
+
+    private int funds;
+
+    /**
+     * Deposits an amount into this bank account.
+     *
+     * @param amount
+     */
+    public void deposit(int amount) {
+        this.funds += amount;
+    }
+
+    /**
+     * Getter method for funds.
+     *
+     * @return current funds.
+     */
+    public int getFunds() {
+        return this.funds;
+    }
+
+    /**
+     * Withdraws an amount from this bank account.
+     *
+     * @param amount
+     * @throws FundsException if there are insufficient funds for the withdraw.
+     */
+    public void withdraw(int amount) {
+        System.out.printf("Attempting withdraw... ");
+        this.funds -= amount;
+        System.out.printf("Withdrew %d funds.\n", amount);
+    }
+
+    /**
+     * Transfers an amount from one bank account to another.
+     *
+     * @param b1 The bank account the funds are transferred from.
+     * @param b2 The bank account the funds are transferred to.
+     * @param amount The amount to be transferred.
+     * @throws TransferException if the withdraw fails.
+     */
+    public static void transfer(BankAccount b1, BankAccount b2, int amount) {
+        System.out.printf("Attempting transfer... ");
+        b1.withdraw(amount);
+        b2.deposit(amount);
+        System.out.printf("Transferred %d funds from b1 to b2. Account b1 has %d funds. Account b2 has %d funds.\n", amount, b1.getFunds(), b2.getFunds());
+    }
+
+
+}
+```
+
+Add some exception handling to this class:
+
+- In the withdraw method first check if there are sufficient funds to be withdrawn (the account is not allowed to overdraft). If there are insufficient funds then throw a `FundsException` with the message: `String.format("Withdraw failed. This account has %d in funds but %d were requested.", this.funds, amount)`.
+- In the transfer method handle the possibility of a `FundsException` thrown by the `withdraw` call. If a `FundsException` is caught (with identifier `e`) then simply throw a `TransferException` with the message: `String.format("Transfer failed due to underlying exception: %s", e.getMessage())`.
+- In the transfer method add a `finally` block after your `catch`. Normally in `finally` blocks we include cleanup code. Represent some 'cleanup code' by just including one line in your `finally` block: `System.out.printf("Cleanup transfer.\n");`.     
+
+
+
+Now try running `BankTester` and observe what happens. Try following the control flow using the debugger. The expected terminal output is shown below.
+
+
+Notice that control flow is **always** passed to the `finally` block before the method exits. This is particularly interesting in the last case where the `NullPointerException` is unhandled by the transfer method yet the `finally` block is executed prior to the exception propagation.
 
 ```
-Transferred from b1 to b2; b1 has 75 and b2 has 25 in funds.
-b1 withdraw failed and b1 still has 75 in funds.
-b1 to b2 transfer failed. b1 has 75 and b2 has 25 in funds.
-Exception in thread "main" bank.FundsException
-	at bank.BankAccount.withdraw(BankAccount.java:17)
+Test 1: No exceptions.
+Attempting transfer... Attempting withdraw... Withdrew 25 funds.
+Transferred 25 funds from b1 to b2. Account b1 has 75 funds. Account b2 has 25 funds.
+Cleanup transfer.
+
+Test 2: Exception thrown by withdraw.
+Attempting withdraw... Withdraw threw an exception. Exception is of class 'class bank.FundsException' with message 'Withdraw failed. This account has 75 in funds but 200 were requested.'
+
+Test 3: Transfer handles exception propagation from withdraw.
+Attempting transfer... Attempting withdraw... Cleanup transfer.
+Transfer threw an exception. Exception is of class 'class bank.TransferException' with message 'Transfer failed due to underlying exception: Withdraw failed. This account has 75 in funds but 200 were requested.'
+
+Test 4: Main does not handle an exception propagated by Transfer.
+Attempting transfer... Cleanup transfer.
+Exception in thread "main" java.lang.NullPointerException
+	at bank.BankAccount.transfer(BankAccount.java:51)
 	at bank.BankTester.main(BankTester.java:31)
+
+Process finished with exit code 1
 ```

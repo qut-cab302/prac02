@@ -1,10 +1,7 @@
 package hero;
 
 import java.io.*;
-import heroAnswers.Human;
-import heroAnswers.SuperHuman;
-import heroAnswers.EnhancedHuman;
-import static heroQuestions.SuperPower.*;
+import static hero.SuperPower.*;
 
 /* 
  * This program tests the implementation of your "Hero" type hierarchy
