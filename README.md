@@ -1,3 +1,4 @@
+This week's practical exercises aim to get you familiar with object-oriented programming and exceptions in Java.
 
 
 # Shapes
