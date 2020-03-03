@@ -10,7 +10,7 @@ public class Tetrahedron implements Shape {
 
     @Override
     public double volume() {
-        return Math.pow(edge, 3);
+        return Math.pow(edge, 3) / (6.0 * Math.sqrt(2));
     }
 
     @Override
